@@ -1,22 +1,43 @@
+'use client';
+
 export default function HowItWorks() {
-    const pasos = [
-      { title: "1. Pedí cotización", desc: "Nos decís qué producto querés importar y te cotizamos rápido." },
-      { title: "2. Confirmá tu pedido", desc: "Acordamos el pago y comenzamos el proceso de importación." },
-      { title: "3. Recibí tu producto", desc: "Te avisamos cuando llega y lo recibís sin complicaciones." }
-    ];
-  
-    return (
-      <section className="py-16 bg-gray-100 text-gray-900 text-center">
-        <h2 className="text-3xl font-semibold mb-8">¿Cómo funciona?</h2>
-        <div className="flex flex-col md:flex-row justify-center gap-8">
-          {pasos.map((p, i) => (
-            <div key={i} className="p-6 bg-white border rounded shadow-md w-72">
-              <h3 className="text-xl font-bold mb-2">{p.title}</h3>
-              <p>{p.desc}</p>
+  const pasos = [
+    {
+      step: '1',
+      title: 'Contactanos por WhatsApp',
+      description: 'Nos escribís y nos contás qué producto necesitás importar.',
+    },
+    {
+      step: '2',
+      title: 'Cotizamos y gestionamos la compra',
+      description: 'Te pasamos precio final y realizamos todo el proceso de importación.',
+    },
+    {
+      step: '3',
+      title: 'Recibís tu producto en Argentina',
+      description: 'Te avisamos apenas llega. Lo recibís en tu domicilio o punto de entrega.',
+    },
+  ];
+
+  return (
+    <section className="bg-gray-900 text-white py-16 px-6 text-center">
+      <h2 className="text-3xl md:text-4xl font-bold mb-12">
+        ¿Cómo funciona?
+      </h2>
+      <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        {pasos.map((paso, idx) => (
+          <div
+            key={idx}
+            className="bg-gray-800 rounded-xl p-6 shadow hover:shadow-xl transition"
+          >
+            <div className="text-4xl font-bold text-cyan-400 mb-4">
+              Paso {paso.step}
             </div>
-          ))}
-        </div>
-      </section>
-    );
-  }
-  
+            <h3 className="text-xl font-semibold mb-2">{paso.title}</h3>
+            <p className="text-gray-300">{paso.description}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
